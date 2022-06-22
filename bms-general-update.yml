@@ -1,0 +1,13 @@
+- name: General system updates playbook
+  hosts: all
+  tasks:
+   - name: Run chocolatey updates and update all installed packages
+     chocolatey.chocolatey.win_chocolatey:
+       name: all
+       state: latest
+
+   - name: Run windows update, install all updates, and reboot as many times as needed
+     ansible.windows.win_updates:
+       category_names: '*'
+       reboot: yes
+
