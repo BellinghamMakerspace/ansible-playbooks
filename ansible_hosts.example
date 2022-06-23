@@ -1,29 +1,11 @@
-all:
-  lab:
-    hosts:
-      10.10.10.10
-      10.10.10.11
-      10.10.10.12
-    vars:
-      ansible_user: "Administrative Username"
-      ansible_password: "put_a_password_here"
-      ansible_connection: winrm
-      ansible_winrm_server_cert_validation: ignore
-  cnc:
-    hosts:
-      10.10.15.10
-    vars:
-      ansible_user: "Administrative Username"
-      ansible_password: "put_a_password_here"
-      ansible_connection: winrm
-      ansible_winrm_server_cert_validation: ignore
-  hamradio:
-    hosts:
-      bmarg01.bmakers.org
-      bmarg02.bmakers.org
-      bmarg03.bmakers.org
-    vars:
-        ansible_user: "Administrative Username"
-        ansible_password: "put_a_password_here"
-        ansible_connection: winrm
-        ansible_winrm_server_cert_validation: ignore
+lab:
+  hosts:
+    lab01:
+      ansible_host: 10.10.10.114
+    # lab02:
+    #   ansible_host: 10.10.10.11
+  vars:
+    ansible_user: "Administrative Username"
+    ansible_password: "put_a_password_here"
+    ansible_connection: winrm
+    ansible_winrm_server_cert_validation: ignore

@@ -1,0 +1,45 @@
+- name: Lab Machine Initial Playbook
+  hosts: lab
+  tasks:
+   - name: Install the base packages
+     chocolatey.chocolatey.win_chocolatey:
+       name:
+       - arduino
+       - arduino-cli
+       - chromium
+       - DotNet4.5.2
+       - firefox
+       - gimp
+       - hackfont
+       - inkscape
+       - libreoffice-fresh
+       - nerdfont-hack
+       - notepadplusplus
+       - openscad
+       - python3
+       - thonny
+       - vlc
+       - vscode
+       - vscode-arduino
+       - vscode-python
+       state: present
+
+   - name: Copy the User folder 
+     ansible.windows.win_copy:
+       src: {{ user_src }}
+       dest: C:\Users\BMS Lab User
+
+   - name: Change the hostname
+     ansible.windows.win_hostname:
+       name: {{ inventory_hostname }}
+     register: res    
+
+   - name: Run Windows Update
+     ansible.windows.win_updates:
+     category_names: '*'
+     reboot: yes
+
+
+   - name: Reboot one last time for good measure
+     ansible.windows.win_reboot:
+     when: res.reboot_required
