@@ -1,41 +1,10 @@
 - name: Lab Machine Initial Playbook
   hosts: lab
   tasks:
-  - name: install chocolatey
-    chocolatey.chocolatey.win_chocolatey:
-      name: chocolatey
-      state: present
+  - import_tasks: license_machine.yml
+  - import_tasks: add_lab_user.yml
+  - import_tasks: install_software.yml
 
-  - name: Install the base packages
-    chocolatey.chocolatey.win_chocolatey:
-      name:
-      - arduino
-      - arduino-cli
-      - chromium
-      - DotNet4.5.2
-      - firefox
-      - gimp
-      - hackfont
-      - inkscape
-      - nerdfont-hack
-      - notepadplusplus
-      - openscad
-      - python3
-      - thonny
-      - vlc
-      - vscode
-      - vscode-arduino
-      - vscode-python
-      state: present
-
-  - name: set up BMS Lab User account
-    ansible.windows.win_user:
-      name: BMS Lab User
-      password: makestuff
-      state: present
-      groups:
-        - Users
-    
   - name: Change the hostname
     ansible.windows.win_hostname:
       name: "{{ inventory_hostname }}"
@@ -46,6 +15,6 @@
       category_names: '*'
       reboot: yes
 
-  - name: Reboot one last time for good measure
-    ansible.windows.win_reboot:
-    when: res.reboot_required
+  # - name: Reboot one last time for good measure
+  #   ansible.windows.win_reboot:
+  #   when: res.reboot_required

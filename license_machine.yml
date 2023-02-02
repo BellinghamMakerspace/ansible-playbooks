@@ -1,0 +1,16 @@
+  - name: license the machines
+    ansible.windows.win_powershell: 
+      script: |
+        [CmdletBinding()]
+        param (
+          [String]
+          $key
+        )
+        $computer = $env:computername
+        $service = get-wmiObject -query "select * from SoftwareLicensingService" -computername $computer
+        $service.InstallProductKey($key)
+        $service.RefreshLicenseStatus()
+        $service.RefreshLicenseStatus()
+
+      parameters:
+        key: "{{ license_key }}"

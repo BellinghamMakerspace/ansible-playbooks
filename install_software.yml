@@ -1,0 +1,130 @@
+  - name: install chocolatey
+    chocolatey.chocolatey.win_chocolatey:
+      name: chocolatey
+      state: present
+
+  - name: install arduino
+    chocolatey.chocolatey.win_chocolatey:
+      name: arduino
+      state: present
+      source: "{{ choco_repo }}"
+
+  - name: install arduino-cli
+    chocolatey.chocolatey.win_chocolatey:
+      name: arduino-cli
+      state: present
+      source: "{{ choco_repo }}"
+
+  - name: install chromium
+    chocolatey.chocolatey.win_chocolatey:
+      name: chromium
+      state: present
+      source: "{{ choco_repo }}"
+
+  - name: install DotNet4.5.2
+    chocolatey.chocolatey.win_chocolatey:
+      name: DotNet4.5.2
+      state: present
+      source: "{{ choco_repo }}"
+
+  - name: install firefox
+    chocolatey.chocolatey.win_chocolatey:
+      name: firefox
+      state: present
+      source: "{{ choco_repo }}"
+
+  - name: install gimp
+    chocolatey.chocolatey.win_chocolatey:
+      name: gimp
+      state: present
+      source: "{{ choco_repo }}"
+
+  - name: install hackfont
+    chocolatey.chocolatey.win_chocolatey:
+      name: hackfont
+      state: present
+      source: "{{ choco_repo }}"
+  
+  - name: install inkscape
+    chocolatey.chocolatey.win_chocolatey:
+      name: inkscape
+      state: present
+      source: "{{ choco_repo }}"
+
+  - name: install nerdfont-hack
+    chocolatey.chocolatey.win_chocolatey:
+      name: nerdfont-hack
+      state: present
+      source: "{{ choco_repo }}"
+
+  - name: install notepadplusplus
+    chocolatey.chocolatey.win_chocolatey:
+      name: notepadplusplus
+      state: present
+      source: "{{ choco_repo }}"
+
+  - name: install openscad
+    chocolatey.chocolatey.win_chocolatey:
+      name: openscad
+      state: present
+      source: "{{ choco_repo }}"
+
+  - name: install python3
+    chocolatey.chocolatey.win_chocolatey:
+      name: python3
+      state: present
+      source: "{{ choco_repo }}"
+
+  - name: install thonny
+    chocolatey.chocolatey.win_chocolatey:
+      name: thonny
+      state: present
+      source: "{{ choco_repo }}"
+
+  - name: install vlc
+    chocolatey.chocolatey.win_chocolatey:
+      name: vlc
+      state: present
+      source: "{{ choco_repo }}"
+
+  - name: install vscode
+    chocolatey.chocolatey.win_chocolatey:
+      name: vscode
+      state: present
+      source: "{{ choco_repo }}"
+
+  - name: install vscode-arduino
+    chocolatey.chocolatey.win_chocolatey:
+      name: vscode-arduino
+      state: present
+      source: "{{ choco_repo }}"
+
+  - name: install vscode-python
+    chocolatey.chocolatey.win_chocolatey:
+      name: vscode-python
+      state: present
+      source: "{{ choco_repo }}"
+
+  - name: install blender
+    chocolatey.chocolatey.win_chocolatey:
+      name: blender
+      state: present
+      source: "{{ choco_repo }}"
+
+  - name: install cura-new
+    chocolatey.chocolatey.win_chocolatey:
+      name: cura-new
+      state: present
+      source: "{{ choco_repo }}"
+
+  - name: ideamaker
+    chocolatey.chocolatey.win_chocolatey:
+      name: ideamaker
+      state: absent
+      source: "{{ choco_repo }}"
+
+  - name: microsoft-windows-terminal
+    chocolatey.chocolatey.win_chocolatey:
+      name: microsoft-windows-terminal
+      state: present
+      source: "{{ choco_repo }}"

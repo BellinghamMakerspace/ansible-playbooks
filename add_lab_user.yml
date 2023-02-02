@@ -1,0 +1,16 @@
+  - name: set up BMS Lab User account
+    ansible.windows.win_user:
+      name: BMS Lab User
+      password: ""
+      update_password: always
+      password_never_expires: true
+      user_cannot_change_password: true
+      state: present
+      groups:
+        - Users 
+
+  - name: set up BMS Administrator
+    ansible.windows.win_user:
+      name: BMS Administrator
+      password_never_expires: true
+      state: present

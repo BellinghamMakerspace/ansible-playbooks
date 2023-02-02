@@ -5,6 +5,7 @@
      chocolatey.chocolatey.win_chocolatey:
        name: all
        state: latest
+       source: "{{ choco_repo }}"
 
    - name: Run windows update, install all updates, and reboot as many times as needed
      ansible.windows.win_updates:
