@@ -1,120 +1,132 @@
   - name: install chocolatey
     chocolatey.chocolatey.win_chocolatey:
       name: chocolatey
-      state: present
+      state: latest
 
   - name: install arduino
     chocolatey.chocolatey.win_chocolatey:
       name: arduino
-      state: present
+      state: latest
       source: "{{ choco_repo }}"
 
   - name: install arduino-cli
     chocolatey.chocolatey.win_chocolatey:
       name: arduino-cli
-      state: present
+      state: latest
       source: "{{ choco_repo }}"
 
   - name: install chromium
     chocolatey.chocolatey.win_chocolatey:
       name: chromium
-      state: present
+      state: latest
       source: "{{ choco_repo }}"
 
   - name: install DotNet4.5.2
     chocolatey.chocolatey.win_chocolatey:
       name: DotNet4.5.2
-      state: present
+      state: latest
       source: "{{ choco_repo }}"
 
   - name: install firefox
     chocolatey.chocolatey.win_chocolatey:
       name: firefox
-      state: present
+      state: latest
       source: "{{ choco_repo }}"
 
   - name: install gimp
     chocolatey.chocolatey.win_chocolatey:
       name: gimp
-      state: present
+      state: latest
       source: "{{ choco_repo }}"
 
   - name: install hackfont
     chocolatey.chocolatey.win_chocolatey:
       name: hackfont
-      state: present
+      state: latest
       source: "{{ choco_repo }}"
   
   - name: install inkscape
     chocolatey.chocolatey.win_chocolatey:
       name: inkscape
-      state: present
+      state: latest
       source: "{{ choco_repo }}"
+
+  - name: Create an application shortcut for Inkscape
+    community.windows.win_shortcut:
+      src: 'C:\Program Files\Inkscape\bin\inkscape.exe'
+      dest: '%public%\Desktop\Inkscape.lnk'
+      icon: 'C:\Program Files\Inkscape\bin\inkscape.exe,0'
 
   - name: install nerdfont-hack
     chocolatey.chocolatey.win_chocolatey:
       name: nerdfont-hack
-      state: present
+      state: latest
+      source: "{{ choco_repo }}"
+
+  - name: install vcredist2013
+    chocolatey.chocolatey.win_chocolatey:
+      name: vcredist2013
+      state: latest
       source: "{{ choco_repo }}"
 
   - name: install notepadplusplus
     chocolatey.chocolatey.win_chocolatey:
       name: notepadplusplus
-      state: present
+      state: latest
       source: "{{ choco_repo }}"
 
   - name: install openscad
     chocolatey.chocolatey.win_chocolatey:
       name: openscad
-      state: present
+      state: latest
       source: "{{ choco_repo }}"
 
   - name: install python3
     chocolatey.chocolatey.win_chocolatey:
       name: python3
-      state: present
+      state: latest
       source: "{{ choco_repo }}"
 
   - name: install thonny
     chocolatey.chocolatey.win_chocolatey:
       name: thonny
-      state: present
+      state: latest
       source: "{{ choco_repo }}"
 
   - name: install vlc
     chocolatey.chocolatey.win_chocolatey:
       name: vlc
-      state: present
+      state: latest
       source: "{{ choco_repo }}"
 
   - name: install vscode
     chocolatey.chocolatey.win_chocolatey:
       name: vscode
-      state: present
+      state: latest
       source: "{{ choco_repo }}"
 
   - name: install vscode-arduino
     chocolatey.chocolatey.win_chocolatey:
       name: vscode-arduino
-      state: present
+      state: latest
       source: "{{ choco_repo }}"
 
   - name: install vscode-python
     chocolatey.chocolatey.win_chocolatey:
       name: vscode-python
-      state: present
+      state: latest
       source: "{{ choco_repo }}"
 
   - name: install blender
     chocolatey.chocolatey.win_chocolatey:
       name: blender
-      state: present
+      state: latest
       source: "{{ choco_repo }}"
 
   - name: install cura-new
     chocolatey.chocolatey.win_chocolatey:
       name: cura-new
-      state: present
+      state: latest
       source: "{{ choco_repo }}"
 
   - name: ideamaker
@@ -126,5 +138,5 @@
   - name: microsoft-windows-terminal
     chocolatey.chocolatey.win_chocolatey:
       name: microsoft-windows-terminal
-      state: present
+      state: latest
       source: "{{ choco_repo }}"

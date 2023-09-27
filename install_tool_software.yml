@@ -1,0 +1,124 @@
+  - name: install chocolatey
+    chocolatey.chocolatey.win_chocolatey:
+      name: chocolatey
+      state: latest
+
+  - name: install arduino
+    chocolatey.chocolatey.win_chocolatey:
+      name: arduino
+      state: latest
+      source: "{{ choco_repo }}"
+
+  - name: install arduino-cli
+    chocolatey.chocolatey.win_chocolatey:
+      name: arduino-cli
+      state: latest
+      source: "{{ choco_repo }}"
+
+  - name: install chromium
+    chocolatey.chocolatey.win_chocolatey:
+      name: chromium
+      state: latest
+      source: "{{ choco_repo }}"
+
+  - name: install DotNet4.5.2
+    chocolatey.chocolatey.win_chocolatey:
+      name: DotNet4.5.2
+      state: latest
+      source: "{{ choco_repo }}"
+
+  - name: install firefox
+    chocolatey.chocolatey.win_chocolatey:
+      name: firefox
+      state: latest
+      source: "{{ choco_repo }}"
+
+  - name: install hackfont
+    chocolatey.chocolatey.win_chocolatey:
+      name: hackfont
+      state: latest
+      source: "{{ choco_repo }}"
+  
+  - name: install inkscape
+    chocolatey.chocolatey.win_chocolatey:
+      name: inkscape
+      state: latest
+      source: "{{ choco_repo }}"
+
+  - name: Create an application shortcut for Inkscape
+    community.windows.win_shortcut:
+      src: 'C:\Program Files\Inkscape\bin\inkscape.exe'
+      dest: '%public%\Desktop\Inkscape.lnk'
+      icon: 'C:\Program Files\Inkscape\bin\inkscape.exe,0'
+
+  - name: install nerdfont-hack
+    chocolatey.chocolatey.win_chocolatey:
+      name: nerdfont-hack
+      state: latest
+      source: "{{ choco_repo }}"
+
+  - name: install vcredist2013
+    chocolatey.chocolatey.win_chocolatey:
+      name: vcredist2013
+      state: latest
+      source: "{{ choco_repo }}"
+
+  - name: install notepadplusplus
+    chocolatey.chocolatey.win_chocolatey:
+      name: notepadplusplus
+      state: latest
+      source: "{{ choco_repo }}"
+
+  - name: install openscad
+    chocolatey.chocolatey.win_chocolatey:
+      name: openscad
+      state: latest
+      source: "{{ choco_repo }}"
+
+  - name: install python3
+    chocolatey.chocolatey.win_chocolatey:
+      name: python3
+      state: latest
+      source: "{{ choco_repo }}"
+
+  - name: install vlc
+    chocolatey.chocolatey.win_chocolatey:
+      name: vlc
+      state: latest
+      source: "{{ choco_repo }}"
+
+  - name: install vscode
+    chocolatey.chocolatey.win_chocolatey:
+      name: vscode
+      state: latest
+      source: "{{ choco_repo }}"
+
+  - name: install vscode-arduino
+    chocolatey.chocolatey.win_chocolatey:
+      name: vscode-arduino
+      state: latest
+      source: "{{ choco_repo }}"
+
+  - name: install vscode-python
+    chocolatey.chocolatey.win_chocolatey:
+      name: vscode-python
+      state: latest
+      source: "{{ choco_repo }}"
+
+  - name: install cura-new
+    chocolatey.chocolatey.win_chocolatey:
+      name: cura-new
+      state: latest
+      source: "{{ choco_repo }}"
+
+  - name: ideamaker
+    chocolatey.chocolatey.win_chocolatey:
+      name: ideamaker
+      state: absent
+      source: "{{ choco_repo }}"
+
+  - name: microsoft-windows-terminal
+    chocolatey.chocolatey.win_chocolatey:
+      name: microsoft-windows-terminal
+      state: latest
+      source: "{{ choco_repo }}"

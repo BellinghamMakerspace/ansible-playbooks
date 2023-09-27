@@ -1,5 +1,6 @@
 - name: General system updates playbook
-  hosts: all
+  strategy: free
+  hosts: lab, tool_machines, laptops
   tasks:
    - name: Run chocolatey updates and update all installed packages
      chocolatey.chocolatey.win_chocolatey:

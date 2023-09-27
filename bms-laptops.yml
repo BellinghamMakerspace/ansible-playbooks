@@ -1,0 +1,22 @@
+- name: Laptop-specific tasks
+  strategy: free
+  hosts: laptops
+
+  tasks:
+  - name: install zoom
+    chocolatey.chocolatey.win_chocolatey:
+      name: zoom
+      state: latest
+      source: "{{ choco_repo }}"
+  
+  - name: install slack
+    chocolatey.chocolatey.win_chocolatey:
+      name: slack
+      state: latest
+      source: "{{ choco_repo }}"
+
+  - name: install bitwarden client
+    chocolatey.chocolatey.win_chocolatey:
+      name: bitwarden
+      state: latest
+      source: "{{ choco_repo }}"

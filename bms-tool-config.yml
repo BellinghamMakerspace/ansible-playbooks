@@ -1,9 +1,9 @@
-- name: Lab Machine Initial Playbook
+- name: Tool Machine Initial Playbook
   strategy: free
-  hosts: lab
+  hosts: tool_machines, laptops
 
   tasks:
-  - import_tasks: install_lab_software.yml
+  - import_tasks: install_tool_software.yml
 
   - name: Change the hostname
     ansible.windows.win_hostname:
@@ -17,4 +17,4 @@
 
   - name: Reboot one last time for good measure
     ansible.windows.win_reboot:
-    when: res.reboot_required``
+    when: res.reboot_required
