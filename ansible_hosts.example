@@ -9,3 +9,16 @@ lab:
     ansible_password: "put_a_password_here"
     ansible_connection: winrm
     ansible_winrm_server_cert_validation: ignore
+
+servers:
+    hosts: 
+        swarm-prod-manager01:
+            ansible_host: 10.10.1.30
+        swarm-dev-manager01:
+            ansible_host: 10.10.1.60
+    vars:
+        ansible_user: administrator
+        ansible_password: "put_a_password_here"
+        ansible_connection: ssh
+        ansible_ssh_retries: 3
+        ansible_become_method: sudo
