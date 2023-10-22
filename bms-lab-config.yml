@@ -17,4 +17,4 @@
 
   - name: Reboot one last time for good measure
     ansible.windows.win_reboot:
-    when: res.reboot_required``
+    when: res.reboot_required

@@ -1,0 +1,79 @@
+- name: BMS New Server Setup
+  strategy: free
+  hosts: servers
+  become: true
+  become_method: sudo
+
+  tasks:
+    - name: Run system updates
+      ansible.builtin.apt:
+        upgrade: dist
+        update_cache: true
+
+    - name: Install useful packages
+      ansible.builtin.apt:
+        pkg:
+          - zsh
+          - git
+          - curl
+          - ca-certificates
+          - gnupg-agent
+          - apt-transport-https
+          - software-properties-common
+        state: present
+        update_cache: true
+
+    - name: Remove packages that conflict with docker-ce
+      ansible.builtin.apt:
+        pkg:
+          - docker.io
+          - docker-compose
+          - docker-compose-v2
+          - docker-doc
+          - podman-docker
+          - containerd
+          - runc
+        state: absent
+
+    - name: Add the docker repo key
+      ansible.builtin.apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add the docker-ce repo
+      ansible.builtin.apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu "{{ ansible_distribution_release }}" stable
+        state: present
+
+    - name: Install docker
+      ansible.builtin.apt:
+        pkg:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
+        state: present
+
+    - name: Add administrator to docker group
+      ansible.builtin.user:
+        name: "{{ ansible_user }}"
+        groups: docker
+        append: true
+
+    - name: Set up for docker-compose repo
+      ansible.builtin.file:
+        path: /opt/bms/docker-stacks
+        state: directory
+        mode: '0755'
+
+    - name: Pull docker-compose repo
+      ansible.builtin.git:
+        repo: https://github.com/BellinghamMakerspace/stacks.git
+        dest: /opt/bms/docker-stacks
+
+    - name: Set up docker storage pools
+      ansible.builtin.file:
+        path: /pools/pool1
+        state: directory
+        mode: '0755'
